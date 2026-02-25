@@ -134,6 +134,21 @@ function CanvasInner() {
   }, [takeSnapshot, setEdges]);
 
   // Add node on pane click
+  // Double-click on pane to add text node
+  const onPaneDoubleClick = useCallback((event: React.MouseEvent) => {
+    const position = reactFlow.screenToFlowPosition({
+      x: event.clientX, y: event.clientY,
+    });
+    takeSnapshot();
+    const id = `node-${Date.now()}`;
+    setNodes(nds => [...nds, {
+      id, position,
+      type: 'text',
+      data: { label: '' },
+      style: { width: 150, height: 40 },
+    }]);
+  }, [reactFlow, takeSnapshot, setNodes]);
+
   const onPaneClick = useCallback((event: React.MouseEvent) => {
     if (activeTool === 'select') return;
 
@@ -309,6 +324,11 @@ function CanvasInner() {
       <div
         className="flex-1 relative"
         style={{ cursor: activeTool !== 'select' ? 'crosshair' : undefined }}
+        onDoubleClick={(e) => {
+          const target = e.target as HTMLElement;
+          if (target.closest('.react-flow__node') || target.closest('.react-flow__edge')) return;
+          onPaneDoubleClick(e);
+        }}
       >
         <ReactFlow
           nodes={nodes}
