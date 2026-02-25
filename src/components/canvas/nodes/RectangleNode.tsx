@@ -21,10 +21,14 @@ const RectangleNode = memo(({ id, data, selected }: NodeProps) => {
       }}
     >
       <NodeResizer isVisible={!!selected} minWidth={120} minHeight={60} />
-      <Handle type="target" position={Position.Top} id="top" />
-      <Handle type="target" position={Position.Left} id="left" />
+      <Handle type="source" position={Position.Top} id="top" />
+      <Handle type="source" position={Position.Left} id="left" />
       <Handle type="source" position={Position.Bottom} id="bottom" />
       <Handle type="source" position={Position.Right} id="right" />
+      <Handle type="target" position={Position.Top} id="top-target" />
+      <Handle type="target" position={Position.Left} id="left-target" />
+      <Handle type="target" position={Position.Bottom} id="bottom-target" />
+      <Handle type="target" position={Position.Right} id="right-target" />
 
       <div className="p-3 h-full flex flex-col">
         {editingField === 'title' ? (

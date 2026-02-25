@@ -31,7 +31,17 @@ export default function InspectorPanel({
       {node && (
         <div className="space-y-5">
           <Section title="Colors">
-            <ColorInput label="Fill" value={node.data.fillColor || '#ffffff'} onChange={v => onUpdateNodeData(node.id, { fillColor: v })} />
+            <Row label="No Fill">
+              <input
+                type="checkbox"
+                checked={node.data.fillColor === 'transparent'}
+                onChange={e => onUpdateNodeData(node.id, { fillColor: e.target.checked ? 'transparent' : '#ffffff' })}
+                className="accent-primary w-4 h-4"
+              />
+            </Row>
+            {node.data.fillColor !== 'transparent' && (
+              <ColorInput label="Fill" value={node.data.fillColor || '#ffffff'} onChange={v => onUpdateNodeData(node.id, { fillColor: v })} />
+            )}
             <ColorInput label="Border" value={node.data.borderColor || '#e2e8f0'} onChange={v => onUpdateNodeData(node.id, { borderColor: v })} />
             <ColorInput label="Text" value={node.data.textColor || '#1e293b'} onChange={v => onUpdateNodeData(node.id, { textColor: v })} />
           </Section>

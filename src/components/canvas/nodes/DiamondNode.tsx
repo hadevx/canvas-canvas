@@ -12,10 +12,14 @@ const DiamondNode = memo(({ id, data, selected }: NodeProps) => {
   return (
     <div className="w-full h-full relative flex items-center justify-center">
       <NodeResizer isVisible={!!selected} minWidth={100} minHeight={100} keepAspectRatio />
-      <Handle type="target" position={Position.Top} id="top" />
-      <Handle type="target" position={Position.Left} id="left" />
+      <Handle type="source" position={Position.Top} id="top" />
+      <Handle type="source" position={Position.Left} id="left" />
       <Handle type="source" position={Position.Bottom} id="bottom" />
       <Handle type="source" position={Position.Right} id="right" />
+      <Handle type="target" position={Position.Top} id="top-target" />
+      <Handle type="target" position={Position.Left} id="left-target" />
+      <Handle type="target" position={Position.Bottom} id="bottom-target" />
+      <Handle type="target" position={Position.Right} id="right-target" />
 
       {/* Diamond shape via rotated square */}
       <div
