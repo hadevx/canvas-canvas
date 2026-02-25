@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 14% 96%;
+    --foreground: 220 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 13% 91%;
+    --secondary-foreground: 220 15% 20%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 220 13% 91%;
+    --accent-foreground: 220 15% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 87%;
+    --input: 220 13% 87%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.5rem;
+
+    --canvas-bg: 220 14% 96%;
+    --canvas-surface: 0 0% 100%;
+    --canvas-dot: 220 13% 78%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 15% 15%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 220 15% 15%;
+    --sidebar-border: 220 13% 87%;
+    --sidebar-ring: 217 91% 60%;
+  }
+
+  .dark {
+    --background: 222 22% 8%;
+    --foreground: 220 14% 96%;
+
+    --card: 222 22% 11%;
+    --card-foreground: 220 14% 96%;
+
+    --popover: 222 22% 11%;
+    --popover-foreground: 220 14% 96%;
+
+    --primary: 217 91% 65%;
+    --primary-foreground: 222 22% 8%;
+
+    --secondary: 222 14% 16%;
+    --secondary-foreground: 220 14% 96%;
+
+    --muted: 222 14% 16%;
+    --muted-foreground: 220 9% 55%;
+
+    --accent: 222 14% 16%;
+    --accent-foreground: 220 14% 96%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 14% 18%;
+    --input: 222 14% 18%;
+    --ring: 217 91% 65%;
+
+    --canvas-bg: 222 22% 6%;
+    --canvas-surface: 222 22% 11%;
+    --canvas-dot: 222 14% 22%;
+
+    --sidebar-background: 222 22% 10%;
+    --sidebar-foreground: 220 14% 96%;
+    --sidebar-primary: 217 91% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 14% 16%;
+    --sidebar-accent-foreground: 220 14% 96%;
+    --sidebar-border: 222 14% 18%;
+    --sidebar-ring: 217 91% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* React Flow overrides */
+.react-flow__handle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: hsl(var(--primary));
+  border: 2px solid hsl(var(--canvas-surface));
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.react-flow__node:hover .react-flow__handle,
+.react-flow__node.selected .react-flow__handle {
+  opacity: 1;
+}
+
+.react-flow__handle:hover {
+  width: 10px;
+  height: 10px;
+}
+
+.react-flow__attribution {
+  display: none;
+}
+
+.react-flow__selection {
+  background: hsl(var(--primary) / 0.08);
+  border: 1px solid hsl(var(--primary) / 0.4);
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: hsl(var(--primary));
+}
+
+.react-flow__resize-control.handle {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  border-color: hsl(var(--primary)) !important;
+  background: white !important;
+}
+
+.react-flow__controls {
+  display: none;
+}
+
+.react-flow__minimap {
+  display: none;
+}
