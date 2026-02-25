@@ -150,7 +150,7 @@ function CanvasInner() {
         style: { width: 150, height: 40 },
       },
       rectangle: {
-        data: { title: '', body: '', fillColor: '#ffffff', borderColor: '#e2e8f0' },
+        data: { label: '', fillColor: '#ffffff', borderColor: '#e2e8f0' },
         style: { width: 200, height: 120 },
       },
       sticky: {
@@ -327,6 +327,9 @@ function CanvasInner() {
           deleteKeyCode={null}
           fitView={initial.current.nodes.length > 0}
           proOptions={{ hideAttribution: true }}
+          connectionRadius={30}
+          snapToGrid
+          snapGrid={[10, 10]}
         >
           {showGrid && (
             <Background

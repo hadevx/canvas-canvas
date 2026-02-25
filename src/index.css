@@ -103,13 +103,14 @@
 
 /* React Flow overrides */
 .react-flow__handle {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background-color: hsl(var(--primary));
   border: 2px solid hsl(var(--canvas-surface));
   opacity: 0;
-  transition: opacity 0.15s;
+  transition: opacity 0.15s, transform 0.15s;
+  z-index: 10;
 }
 
 .react-flow__node:hover .react-flow__handle,
@@ -118,8 +119,18 @@
 }
 
 .react-flow__handle:hover {
-  width: 10px;
-  height: 10px;
+  transform: scale(1.4);
+  box-shadow: 0 0 0 4px hsl(var(--primary) / 0.2);
+}
+
+/* Larger invisible hit area for easier grabbing */
+.react-flow__handle::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
 }
 
 .react-flow__attribution {
@@ -133,6 +144,11 @@
 
 .react-flow__edge.selected .react-flow__edge-path {
   stroke: hsl(var(--primary));
+}
+
+.react-flow__connection-line {
+  stroke: hsl(var(--primary));
+  stroke-width: 2;
 }
 
 .react-flow__resize-control.handle {
