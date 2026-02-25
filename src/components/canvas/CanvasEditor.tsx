@@ -5,7 +5,7 @@ import ReactFlow, {
   addEdge, Connection,
   Background, BackgroundVariant,
   useReactFlow, ReactFlowProvider,
-  MarkerType, SelectionMode,
+  MarkerType, SelectionMode, ConnectionMode,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 
@@ -328,6 +328,7 @@ function CanvasInner() {
           fitView={initial.current.nodes.length > 0}
           proOptions={{ hideAttribution: true }}
           connectionRadius={30}
+          connectionMode={ConnectionMode.Loose}
           snapToGrid
           snapGrid={[10, 10]}
         >
