@@ -26,10 +26,6 @@ const CircleNode = memo(({ id, data, selected }: NodeProps) => {
       <Handle type="source" position={Position.Left} id="left" />
       <Handle type="source" position={Position.Bottom} id="bottom" />
       <Handle type="source" position={Position.Right} id="right" />
-      <Handle type="target" position={Position.Top} id="top-target" />
-      <Handle type="target" position={Position.Left} id="left-target" />
-      <Handle type="target" position={Position.Bottom} id="bottom-target" />
-      <Handle type="target" position={Position.Right} id="right-target" />
 
       {editing ? (
         <input
